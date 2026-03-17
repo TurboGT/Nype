@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Nype</title>
+</head>
+<body>
+    <div id="auth-screen">
+        <h1 class="logo">Nype</h1>
+        <div id="auth-box">
+            <input id="username-input" placeholder="Username">
+            <input id="password-input" type="password" placeholder="Password">
+            <div class="auth-buttons">
+                <button onclick="loginUser()">Sign In</button>
+                <button onclick="registerUser()" class="secondary">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-container" style="display:none">
+        <div id="topbar">
+            <span>Nype</span>
+            <div class="top-actions">
+                <button onclick="startCall()">📞 Call</button>
+                <button onclick="toggleSettings()">⚙️</button>
+            </div>
+        </div>
+        
+        <div id="container">
+            <div id="sidebar">
+                <div class="user-profile">
+                    <img id="my-pfp" src="" onclick="changePFP()">
+                    <span id="display-name">User</span>
+                </div>
+                <div class="sidebar-header">
+                    <span>Contacts</span>
+                    <button onclick="openContactModal()">+</button>
+                </div>
+                <div id="contacts-list"></div>
+            </div>
+
+            <div id="main">
+                <div id="chat"></div>
+                <div id="input-area">
+                    <input id="msg-input" placeholder="Type a message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="call-screen" style="display:none">
+            <video id="remote" autoplay></video>
+            <video id="local" autoplay muted></video>
+            <button onclick="endCall()" class="hangup-btn">End Call</button>
+        </div>
+    </div>
+
+    <div id="contact-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h3>Add Contact</h3>
+            <input id="contact-username-input" placeholder="Username...">
+            <div class="modal-footer">
+                <button onclick="confirmAddContact()">Add</button>
+                <button onclick="closeContactModal()" class="secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <h3>Settings</h3>
+            <button onclick="resetAllData()" class="danger-btn">Reset All Data</button>
+            <button onclick="toggleSettings()">Close</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
