@@ -5,7 +5,7 @@ const io = require('socket.io')(http, { cors: { origin: "*" } });
 const mongoose = require('mongoose');
 
 // 1. Connection (Replace <password> and YOUR_URL with your Atlas info)
-const MONGO_URI = "mongodb+srv://Naterino:<db_password>@nype-server.8vvhdof.mongodb.net/?appName=Nype-Server";
+const MONGO_URI = "mongodb+srv://Naterino:<RBLX1211>@nype-server.8vvhdof.mongodb.net/?appName=Nype-Server";
 
 mongoose.connect(MONGO_URI)
     .then(() => console.log("✅ Connected to MongoDB Atlas"))
