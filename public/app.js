@@ -1,5 +1,5 @@
 // REPLACE 'localhost' with your PC's IP Address (e.g., 192.168.1.15)
-const socket = io("http://nype.onrender.com"); 
+const socket = io("https://nype.onrender.com"); 
 
 let currentUser = null;
 let selectedContact = null;
