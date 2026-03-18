@@ -22,8 +22,7 @@
         <div id="topbar">
             <span>Nype</span>
             <div class="top-actions">
-                <button onclick="startCall()">Call</button>
-                <button onclick="toggleSettings()">Settings</button>
+                <button onclick="toggleSettings()">⚙️</button>
             </div>
         </div>
         
@@ -40,7 +39,18 @@
                 <div id="contacts-list"></div>
             </div>
 
-            <div id="main">
+            <div id="no-chat-selected">
+                <div class="placeholder-content">
+                    <h2 class="logo" style="font-size: 32px;">Nype</h2>
+                    <p>Select a contact to start messaging</p>
+                </div>
+            </div>
+
+            <div id="main" style="display:none">
+                <div id="chat-header">
+                    <span id="active-contact-name">Name</span>
+                    <button onclick="startCall()" class="call-btn">📞 Call</button>
+                </div>
                 <div id="chat"></div>
                 <div id="input-area">
                     <input id="msg-input" placeholder="Type a message...">
@@ -59,8 +69,8 @@
     <div id="contact-modal" class="modal" style="display:none">
         <div class="modal-content">
             <h3>Add Contact</h3>
-            <input id="contact-username-input" placeholder="Username...">
-            <div class="modal-footer">
+            <input id="contact-username-input" placeholder="Enter username...">
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
                 <button onclick="confirmAddContact()">Add</button>
                 <button onclick="closeContactModal()" class="secondary">Cancel</button>
             </div>
