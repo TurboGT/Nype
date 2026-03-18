@@ -1,8 +1,17 @@
-// REPLACE 'localhost' with your PC's IP Address (e.g., 192.168.1.15)
+
 const socket = io("https://nype.onrender.com"); 
 
 let currentUser = null;
 let selectedContact = null;
+
+socket.on('connect', () => {
+    console.log("Successfully connected to Render!");
+    // You could hide a loading spinner here
+});
+
+socket.on('connect_error', () => {
+    console.log("Attempting to wake up the server... please wait.");
+});
 
 // --- Authentication (Server-Side) ---
 
@@ -141,11 +150,17 @@ socket.on("msg", (data) => {
 // --- App Controls ---
 
 function startCall() {
-    document.getElementById("call-screen").style.display = "flex";
+    const callScreen = document.getElementById("call-screen");
+    if (callScreen) {
+        callScreen.style.display = "flex";
+    }
 }
 
 function endCall() {
-    document.getElementById("call-screen").style.display = "none";
+    const callScreen = document.getElementById("call-screen");
+    if (callScreen) {
+        callScreen.style.display = "none";
+    }
 }
 
 function toggleSettings() { 
