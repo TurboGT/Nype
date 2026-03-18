@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.socket.io; script-src 'self' 'unsafe-inline' https://cdn.socket.io; style-src 'self' 'unsafe-inline'; connect-src 'self' https://nype.onrender.com wss://nype.onrender.com http://localhost:3000 ws://localhost:3000;">
     <title>Nype</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="auth-screen">
@@ -59,11 +60,10 @@
             </div>
         </div>
 
-        <div id="call-screen" style="display:none">
-            <video id="remote" autoplay></video>
-            <video id="local" autoplay muted></video>
-            <button onclick="endCall()" class="hangup-btn">End Call</button>
-        </div>
+    <div id="call-screen">
+    <h1>Calling...</h1>
+    <button onclick="endCall()" style="background: red; color: white;">End Call</button>
+</div>
     </div>
 
     <div id="contact-modal" class="modal" style="display:none">
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
     <script src="app.js"></script> 
 </body>
 </html>
